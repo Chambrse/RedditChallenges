@@ -1,0 +1,25 @@
+#banner {
+    height: 300px;
+    width: 100%;
+}
+
+.item {
+    background-color: #33a8ff;
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+form {
+    padding: 20px;
+}
+
+.container {
+    width: 960px;
+}
+
+p {
+    font-weight: 700;
+    padding: 20px;
+}
+

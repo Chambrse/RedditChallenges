@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/CSS/style.css">
+
+    <!-- Javascript -->
+    <script src="assets/javascript/javascript.js"></script>
+
+
+    <title>Challenges</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-center">
+                <img id="banner" src="assets/images/redditBanner.png" alt="reddit banner" />
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <h1>Shane Chambry's reddit challenges</h1>
+            </div>
+        </div>
+        <div class="row item">
+            <div class="col-6">
+                <FORM NAME="myform" ACTION="" METHOD="GET">
+                    Encoder (reddit challenge #355):
+                    <br>
+                    <INPUT TYPE="text" NAME="password" placeholder="Password">
+                    <INPUT TYPE="text" NAME="message" placeholder="message">
+                    <br>
+                    <br>
+                    <INPUT TYPE="button" NAME="button" Value="encrypt" onClick="cypher(form.password.value, form.message.value, 'encode')">
+                    <INPUT TYPE="button" NAME="button" Value="decrypt" onClick="cypher(form.password.value, form.message.value, 'decode')">
+                </FORM>
+                <p id="answer"></p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <a href="https://www.reddit.com/r/dailyprogrammer/comments/879u8b/20180326_challenge_355_easy_alphabet_cipher/">[2018-03-26] Challenge #355 [Easy] Alphabet Cipher</a>
+                    <br>For this challenge, the task is to create a simple alphabet cipher. To use, create a password and type
+                    your message. Hit encode, and send the resulting jibberish to your recipient. You'll have to tell them
+                    the password using some other form of communication. upon recaiving the message, your friend can input
+                    the encoded message with the password and hit decode, revealing the original message.
+                </p>
+            </div>
+        </div>
+        <div class="row item">
+            <div class="col-6">
+                <FORM NAME="myform" ACTION="" METHOD="GET">
+                    Find smallest sum of factors(reddit challenge #354):
+                    <br>
+                    <br>
+                    <INPUT TYPE="text" NAME="productInput" VALUE="" placeholder="Integer A">
+                    <INPUT TYPE="button" NAME="button" Value="Click" onClick="minsum(form.productInput.value)">
+                </FORM>
+                <p id="minsum"></p>
+            </div>
+            <div class="col-6">
+                <p>
+                    <a href="https://www.reddit.com/r/dailyprogrammer/comments/83uvey/20180312_challenge_354_easy_integer_complexity_1/">[2018-03-12] Challenge #354 [Easy] Integer Complexity 1</a>
+                    <br>Next, a mathematical puzzle. Given a number A, find the smallest possible value of B+C, if B*C = A. Here
+                    A, B, and C must all be positive integers. Essentially, it checks B+C for every number that divides evenly
+                    into A until the count is greater than the sum.
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        function cypher(password, message, direction) {
+
+            /* Split the input into the component password and message */
+            /*             var password = input.split(" ")[0];
+                        var message = input.split(" ")[1];
+                        var direction = input.split(" ")[2]; */
+            console.log(direction);
+
+            /* make the cypher table */
+            var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+            var index = alphabet.join("");
+            var cypherTable = [alphabet.join("")];
+            var increment = alphabet;
+            for (i = 0; i < 26; i++) {
+                increment.push(alphabet[0]);
+                increment.shift();
+                next = increment.join("");
+                cypherTable.push(next);
+            }
+
+            /* Form the "passString" by repeating the password until it is longer than the message, then trim */
+            passString = password;
+            while (passString.length < message.length) {
+                passString = passString + password;
+            }
+            passString = passString.slice(0, message.length);
+            if (direction === 'encode') {
+
+                /* encode the message! :D */
+                var encoded = '';
+                for (i = 0; i < message.length; i++) {
+                    encoded = encoded + cypherTable[index.search(message[i])][index.search(passString[i])];
+                }
+
+                document.getElementById("answer").innerHTML = encoded;
+
+            } else if (direction === 'decode') {
+                var decoded = '';
+                for (i = 0; i < message.length; i++) {
+                    column = index.search(passString[i]);
+                    console.log(column);
+                    for (j = 0; j < 25; j++) {
+
+
+                        if (cypherTable[j][column] === message[i]) {
+                            decoded = decoded + index.charAt(j);
+                            console.log(decoded);
+                        }
+                    }
+                }
+                document.getElementById("answer").innerHTML = decoded;
+            }
+
+        }
+        function minsum(product) {
+            var t0 = performance.now();
+            sum = parseInt(product);
+            for (i = 1; i < sum; i++) {
+                remainder = product % i;
+                if (remainder === 0) {
+                    sum = product / i + i;
+                    console.log(i);
+                    console.log(sum);
+                }
+            }
+            var t1 = performance.now;
+            document.getElementById("minsum").innerHTML = sum;
+        }
+
+        function continuedFraction(improper) {
+            console.log(improper);
+        }
+    </script>
+    <div style="border: 2px solid black; width: 25%">
+        <FORM NAME="myform" ACTION="" METHOD="GET">
+            Encoder (reddit challenge #355):
+            <BR>
+            <INPUT TYPE="text" NAME="password" placeholder="Password">
+            <INPUT TYPE="text" NAME="message" placeholder="message">
+            <br>
+            <INPUT TYPE="button" NAME="button" Value="encrypt" onClick="cypher(form.password.value, form.message.value, 'encode')">
+            <INPUT TYPE="button" NAME="button" Value="decrypt" onClick="cypher(form.password.value, form.message.value, 'decode')">
+
+        </FORM>
+    <br>
+    <div style="width: 25%; border: 2px solid black; text-align: center; margin: auto">
+        <p id="answer"></p>
+    </div>
+    <br>
+    </div>
+
+    <FORM NAME="myform" ACTION="" METHOD="GET">
+        Find smallest sum of factors(reddit challenge #354):
+        <BR>
+        <INPUT TYPE="text" NAME="productInput" VALUE="">
+        <P>
+            <INPUT TYPE="button" NAME="button" Value="Click" onClick="minsum(form.productInput.value)">
+    </FORM>
+    <p id="minsum"></p>
+
+    <FORM NAME="myform" ACTION="" METHOD="GET">
+        Find smallest sum of factors(reddit challenge #354):
+        <BR>
+        <INPUT TYPE="text" NAME="fractionInput" VALUE="">
+        <P>
+            <INPUT TYPE="button" NAME="button" Value="Click" onClick="continuedFraction(form.fractionInput.value)">
+    </FORM>
+    <p id="minsum"></p>
+</body>
+
+</html>
