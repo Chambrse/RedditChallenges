@@ -1,5 +1,5 @@
 #banner {
-    height: 300px;
+    height: 25vw;
     width: 100%;
 }
 
@@ -16,6 +16,12 @@ form {
 
 .container {
     width: 960px;
+}
+
+@media screen and (min-width: 320px) {
+    .container {
+        width: 100%;
+    }
 }
 
 p {

@@ -67,3 +67,8 @@ function minsum(product) {
     var t1 = performance.now;
     document.getElementById("minsum").innerHTML = sum;
 }
+
+
+function polydivide(poly1, poly2) {
+    console.log(poly1 + poly2);
+}

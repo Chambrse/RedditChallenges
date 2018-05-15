@@ -24,7 +24,7 @@
     <div class="container">
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <img id="banner" src="assets/images/redditBanner.png" alt="reddit banner" />
+                <img id="banner" class="img img-responsive" src="assets/images/redditBanner.png" alt="reddit banner" />
             </div>
         </div>
         <hr>
@@ -33,6 +33,8 @@
                 <h1>Shane Chambry's reddit challenges</h1>
             </div>
         </div>
+
+        <!-- Alphabet Cipher -->
         <div class="row item">
             <div class="col-6">
                 <FORM NAME="myform" ACTION="" METHOD="GET">
@@ -57,8 +59,10 @@
                 </p>
             </div>
         </div>
+
+        <!-- Minsum -->
         <div class="row item">
-            <div class="col-6">
+            <div class="col-md-6 col-xs-12">
                 <FORM NAME="myform" ACTION="" METHOD="GET">
                     Find smallest sum of factors(reddit challenge #354):
                     <br>
@@ -68,7 +72,32 @@
                 </FORM>
                 <p id="minsum"></p>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-xs-12">
+                <p>
+                    <a href="https://www.reddit.com/r/dailyprogrammer/comments/83uvey/20180312_challenge_354_easy_integer_complexity_1/">[2018-03-12] Challenge #354 [Easy] Integer Complexity 1</a>
+                    <br>Next, a mathematical puzzle. Given a number A, find the smallest possible value of B+C, if B*C = A. Here
+                    A, B, and C must all be positive integers. Essentially, it checks B+C for every number that divides evenly
+                    into A until the count is greater than the sum.
+                </p>
+            </div>
+        </div>
+
+        <div class="row item">
+            <div class="col-md-6 col-xs-12">
+                <form>
+                    <div class="form-group">
+                        <label for="polynomial1">Polynomial #1</label>
+                        <input name="poly1" type="text" class="form-control" id="polynomial1" aria-describedby="first polynomial" placeholder="ax^n">
+                        <small id="polynomial help" class="form-text text-muted"></small>
+                    </div>
+                    <div class="form-group">
+                        <label name="poly2" for="polynomial2">Polynomial #2</label>
+                        <input type="text" class="form-control" id="polynomial2" placeholder="ax^n">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="polydivide(form.poly1.value, form.poly2.value)">Divide!</button>
+                </form>
+            </div>
+            <div class="col-md-6 col-xs-12">
                 <p>
                     <a href="https://www.reddit.com/r/dailyprogrammer/comments/83uvey/20180312_challenge_354_easy_integer_complexity_1/">[2018-03-12] Challenge #354 [Easy] Integer Complexity 1</a>
                     <br>Next, a mathematical puzzle. Given a number A, find the smallest possible value of B+C, if B*C = A. Here
