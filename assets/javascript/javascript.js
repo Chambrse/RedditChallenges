@@ -70,5 +70,32 @@ function minsum(product) {
 
 
 function polydivide(poly1, poly2) {
-    console.log(poly1 + poly2);
+
+    poly1 = "4x^3 + 2x^2 - 6x^1 + 3x^0";
+    poly2 = "2x^1 - 3x^0";
+
+    var poly1Split = poly1.split("x^");
+    var poly2Split = poly2.split("x^");
+
+    var poly1Coef = [];
+    var poly2Coef = [];
+
+    var poly1Exp = [];
+    var poly2Exp = [];
+
+    poly1Coef.push(poly1Split[0]);
+    poly2Coef.push(poly2Split[0]);
+
+    for (var i = 1; i < poly1Split.length - 1; i++) {
+        poly1Coef.push(poly1Split[i].charAt("2") + poly1Split[i].charAt("4"));
+        poly1Exp.push(poly1Split[i].charAt("0"));
+    }
+
+    poly1Exp.push(poly1Split[poly1Split.length - 1]);
+
+    console.log(poly1Coef);
+    console.log(poly1Exp);
+    console.log(poly1Split);
+    console.log(poly2Split);
+
 }

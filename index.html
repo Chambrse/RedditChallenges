@@ -23,8 +23,8 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col d-flex justify-content-center">
-                <img id="banner" class="img img-responsive" src="assets/images/redditBanner.png" alt="reddit banner" />
+            <div class="col">
+                <img id="banner" class="img-responsive" src="assets/images/redditBanner.png" alt="reddit banner" />
             </div>
         </div>
         <hr>
@@ -36,7 +36,7 @@
 
         <!-- Alphabet Cipher -->
         <div class="row item">
-            <div class="col-6">
+            <div class="col-md-6 col-xs-12">
                 <FORM NAME="myform" ACTION="" METHOD="GET">
                     Encoder (reddit challenge #355):
                     <br>
@@ -49,7 +49,7 @@
                 </FORM>
                 <p id="answer"></p>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-xs-12">
                 <p>
                     <a href="https://www.reddit.com/r/dailyprogrammer/comments/879u8b/20180326_challenge_355_easy_alphabet_cipher/">[2018-03-26] Challenge #355 [Easy] Alphabet Cipher</a>
                     <br>For this challenge, the task is to create a simple alphabet cipher. To use, create a password and type
@@ -88,18 +88,17 @@
                     <div class="form-group">
                         <label for="polynomial1">Polynomial #1</label>
                         <input name="poly1" type="text" class="form-control" id="polynomial1" aria-describedby="first polynomial" placeholder="ax^n">
-                        <small id="polynomial help" class="form-text text-muted"></small>
                     </div>
                     <div class="form-group">
                         <label name="poly2" for="polynomial2">Polynomial #2</label>
                         <input type="text" class="form-control" id="polynomial2" placeholder="ax^n">
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="polydivide(form.poly1.value, form.poly2.value)">Divide!</button>
+                    <button type="button" class="btn btn-primary" onclick="polydivide(form.polynomial1.value, form.polynomial2.value);">Divide!</button>
                 </form>
             </div>
             <div class="col-md-6 col-xs-12">
                 <p>
-                    <a href="https://www.reddit.com/r/dailyprogrammer/comments/83uvey/20180312_challenge_354_easy_integer_complexity_1/">[2018-03-12] Challenge #354 [Easy] Integer Complexity 1</a>
+                    <a href="https://www.reddit.com/r/dailyprogrammer/comments/7fvy7z/20171127_challenge_342_easy_polynomial_division/">[2017-11-27] Challenge #342 [Easy] Polynomial Division</a>
                     <br>Next, a mathematical puzzle. Given a number A, find the smallest possible value of B+C, if B*C = A. Here
                     A, B, and C must all be positive integers. Essentially, it checks B+C for every number that divides evenly
                     into A until the count is greater than the sum.
