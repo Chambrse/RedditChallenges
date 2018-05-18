@@ -71,68 +71,76 @@ function minsum(product) {
 
 function polydivide(poly1, poly2) {
 
-    poly1 = [[4,3], [2,2], [-6,1], [3,0]]; /*"4x^3 + 2x^2 - 6x^1 + 3x^0"*/;
-    poly2 = [[1,1], [-3,0]]; /*"2x^1 - 3x^0"*/;
+    poly1 = [[4, 3], [2,2], [-6, 1], [3, 0]]; /*"4x^3 + 2x^2 - 6x^1 + 3x^0"*/
+    poly2 = [[1, 1], [-3, 0]]; /*"2x^1 - 3x^0"*/
 
 
     /* Sort the input into descending order */
-    poly1.sort(function(b, a){
+    poly1.sort(function (b, a) {
         return a[1] - b[1];
     });
 
-    poly2.sort(function(b, a){
+    poly2.sort(function (b, a) {
         return a[1] - b[1];
     });
 
-    console.log(poly1[1][1]);
+    console.log(poly1[0][1]);
 
     /* fill in empty terms */
     var OGlength = poly1.length;
     var OGlength2 = poly2.length;
 
     for (var i = 0; i < OGlength; i++) {
-        if (poly1[i][1] != poly1[i+1][1]+1) {
-            poly1.splice(i+1, 0, [0,poly1[i][1]-1]);
+        if (poly1[i][1] != 0) {
+            if (poly1[i][1] != poly1[i + 1][1] + 1) {
+                poly1.splice(i + 1, 0, [0, poly1[i][1] - 1]);
+            }
         }
         console.log(poly1);
     }
 
     for (var i = 0; i < OGlength2; i++) {
-        if (poly2[i][1] != poly2[i+1][1]+1) {
-            poly2.splice(i+1, 0, [0,poly2[i][1]-1]);
+        if (poly2[i][1] != 0) {
+            if (poly2[i][1] != poly2[i + 1][1] + 1) {
+                poly2.splice(i + 1, 0, [0, poly2[i][1] - 1]);
+            }
         }
         console.log(poly2);
     }
 
     var quotient = [];
-    for (var j = 0; j < poly1.length; j++) {
+    for (var j = 0; j < poly2.length; j++) {
+        console.log(poly1[j][0] / poly2[j][0]);
         quotient.push([poly1[j][0] / poly2[j][0], poly1[j][1] - poly2[j][1]]);
+        console.log(quotient);
+        var newTerm = [quotient[j][0] * poly2[j][0], quotient[j][1] + poly2[j][1]];
+        console.log(newTerm);
     }
 
 
 
-/*     var poly1Split = poly1.split("x^");
-    var poly2Split = poly2.split("x^");
+    /*     var poly1Split = poly1.split("x^");
+        var poly2Split = poly2.split("x^");
+    
+        var poly1Coef = [];
+        var poly2Coef = [];
+    
+        var poly1Exp = [];
+        var poly2Exp = [];
+    
+        poly1Coef.push(poly1Split[0]);
+        poly2Coef.push(poly2Split[0]);
+    
+        for (var i = 1; i < poly1Split.length - 1; i++) {
+            poly1Coef.push(poly1Split[i].charAt("2") + poly1Split[i].charAt("4"));
+            poly1Exp.push(poly1Split[i].charAt("0"));
+        }
+    
+        poly1Exp.push(poly1Split[poly1Split.length - 1]); */
 
-    var poly1Coef = [];
-    var poly2Coef = [];
-
-    var poly1Exp = [];
-    var poly2Exp = [];
-
-    poly1Coef.push(poly1Split[0]);
-    poly2Coef.push(poly2Split[0]);
-
-    for (var i = 1; i < poly1Split.length - 1; i++) {
-        poly1Coef.push(poly1Split[i].charAt("2") + poly1Split[i].charAt("4"));
-        poly1Exp.push(poly1Split[i].charAt("0"));
-    }
-
-    poly1Exp.push(poly1Split[poly1Split.length - 1]); */
-
-/*     console.log(poly1Coef);
-    console.log(poly1Exp);
-    console.log(poly1Split);
-    console.log(poly2Split);
- */
+    /*     console.log(poly1Coef);
+        console.log(poly1Exp);
+        console.log(poly1Split);
+        console.log(poly2Split);
+     */
 }
