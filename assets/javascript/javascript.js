@@ -72,7 +72,7 @@ function minsum(product) {
 function polydivide(poly1, poly2) {
 
     poly1 = [[4, 3], [2,2], [-6, 1], [3, 0]]; /*"4x^3 + 2x^2 - 6x^1 + 3x^0"*/
-    poly2 = [[1, 1], [-3, 0]]; /*"2x^1 - 3x^0"*/
+    poly2 = [[1, 1], [-3, 0]]; /*"1x^1 - 3x^0"*/
 
 
     /* Sort the input into descending order */
@@ -109,13 +109,12 @@ function polydivide(poly1, poly2) {
     }
 
     var quotient = [];
-    for (var j = 0; j < poly2.length; j++) {
-        console.log(poly1[j][0] / poly2[j][0]);
-        quotient.push([poly1[j][0] / poly2[j][0], poly1[j][1] - poly2[j][1]]);
+        console.log(poly1[0][0] / poly2[0][0]);
+        quotient.push([poly1[0][0] / poly2[0][0], poly1[0][1] - poly2[0][1]]);
         console.log(quotient);
-        var newTerm = [quotient[j][0] * poly2[j][0], quotient[j][1] + poly2[j][1]];
+        var newTerm = [quotient[0][0] * poly2[1][0], quotient[0][1] + poly2[0][1]];
         console.log(newTerm);
-    }
+    
 
 
 
