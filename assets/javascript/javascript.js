@@ -71,8 +71,8 @@ function minsum(product) {
 
 function polydivide(poly1, poly2) {
 
-    poly1 = [[4, 3], [2, 2], [-6, 1], [3, 0]]; /*"4x^3 + 2x^2 - 6x^1 + 3x^0"*/
-    poly2 = [[1, 1], [-3, 0]]; /*"1x^1 - 3x^0"*/
+    poly1 = [[2, 4], [-9, 3], [21, 2], [-26, 1], [12, 0]]; /*"4x^3 + 2x^2 - 6x^1 + 3x^0"*/
+    poly2 = [[2, 1], [-3, 0]]; /*"1x^1 - 3x^0"*/
 
 
     /* Sort the input into descending order */
@@ -105,30 +105,46 @@ function polydivide(poly1, poly2) {
         }
     }
 
+    var toSubtract = [];
     var quotient = [];
-    var newTerms = [];
-    var difference = [];
     var highestOrder = poly1[0];
-console.log(quotient);
-    for (var j = 0; j < poly1.length; j++) {
+    var remainder;
 
+    for (var j = 0; j < poly1.length - 1; j++) {
         quotient.push([highestOrder[0] / poly2[0][0], highestOrder[1] - poly2[0][1]]);
-
-        console.log("quotient", quotient);
-
-        newTerms = [];
+        toSubtract = [];
         for (var k = 0; k < poly2.length; k++) {
-            newTerms.push([quotient[j][0] * poly2[k][0], quotient[j][1] + poly2[k][1]]);
+            toSubtract.push([quotient[j][0] * poly2[k][0], quotient[j][1] + poly2[k][1]]);
+            console.log(toSubtract);
         }
+        highestOrder = [poly1[j + 1][0] - toSubtract[1][0], poly1[j + 1][1]];
+        console.log(highestOrder);
+    }
+    remainder = highestOrder[0];
+    console.log(quotient);
+    console.log(remainder);
 
-        console.log("new terms", newTerms);
-        console.log("difference", difference);
-
-        difference.shift();
-        console.log("dif", difference);
-
-        highestOrder = difference[0];
-
-    };
-
+    /*     for (var j = 0; j < poly1.length; j++) {
+    
+            quotient.push([highestOrder[0] / poly2[0][0], highestOrder[1] - poly2[0][1]]);
+    
+            console.log("quotient", quotient);
+    
+            newTerms = [];
+            for (var k = 0; k < poly2.length; k++) {
+                newTerms = [quotient[j][0] * poly2[k][0], quotient[j][1] + poly2[k][1]];
+                difference.push([highestOrder[0] - newTerms[0], highestOrder[1]]);
+    
+            }
+    
+            console.log("new terms", newTerms);
+            console.log("difference", difference);
+    
+            difference.shift();
+            console.log("dif", difference);
+    
+            highestOrder = difference[0];
+    
+        };
+     */
 };
