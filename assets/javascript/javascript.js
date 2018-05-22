@@ -71,7 +71,7 @@ function minsum(product) {
 
 function polydivide(poly1, poly2) {
 
-    poly1 = [[4, 3], [2,2], [-6, 1], [3, 0]]; /*"4x^3 + 2x^2 - 6x^1 + 3x^0"*/
+    poly1 = [[4, 3], [2, 2], [-6, 1], [3, 0]]; /*"4x^3 + 2x^2 - 6x^1 + 3x^0"*/
     poly2 = [[1, 1], [-3, 0]]; /*"1x^1 - 3x^0"*/
 
 
@@ -84,7 +84,6 @@ function polydivide(poly1, poly2) {
         return a[1] - b[1];
     });
 
-    console.log(poly1[0][1]);
 
     /* fill in empty terms */
     var OGlength = poly1.length;
@@ -96,7 +95,6 @@ function polydivide(poly1, poly2) {
                 poly1.splice(i + 1, 0, [0, poly1[i][1] - 1]);
             }
         }
-        console.log(poly1);
     }
 
     for (var i = 0; i < OGlength2; i++) {
@@ -105,41 +103,32 @@ function polydivide(poly1, poly2) {
                 poly2.splice(i + 1, 0, [0, poly2[i][1] - 1]);
             }
         }
-        console.log(poly2);
     }
 
     var quotient = [];
-        console.log(poly1[0][0] / poly2[0][0]);
-        quotient.push([poly1[0][0] / poly2[0][0], poly1[0][1] - poly2[0][1]]);
-        console.log(quotient);
-        var newTerm = [quotient[0][0] * poly2[1][0], quotient[0][1] + poly2[0][1]];
-        console.log(newTerm);
-    
+    var newTerms = [];
+    var difference = [];
+    var highestOrder = poly1[0];
+console.log(quotient);
+    for (var j = 0; j < poly1.length; j++) {
 
+        quotient.push([highestOrder[0] / poly2[0][0], highestOrder[1] - poly2[0][1]]);
 
+        console.log("quotient", quotient);
 
-    /*     var poly1Split = poly1.split("x^");
-        var poly2Split = poly2.split("x^");
-    
-        var poly1Coef = [];
-        var poly2Coef = [];
-    
-        var poly1Exp = [];
-        var poly2Exp = [];
-    
-        poly1Coef.push(poly1Split[0]);
-        poly2Coef.push(poly2Split[0]);
-    
-        for (var i = 1; i < poly1Split.length - 1; i++) {
-            poly1Coef.push(poly1Split[i].charAt("2") + poly1Split[i].charAt("4"));
-            poly1Exp.push(poly1Split[i].charAt("0"));
+        newTerms = [];
+        for (var k = 0; k < poly2.length; k++) {
+            newTerms.push([quotient[j][0] * poly2[k][0], quotient[j][1] + poly2[k][1]]);
         }
-    
-        poly1Exp.push(poly1Split[poly1Split.length - 1]); */
 
-    /*     console.log(poly1Coef);
-        console.log(poly1Exp);
-        console.log(poly1Split);
-        console.log(poly2Split);
-     */
-}
+        console.log("new terms", newTerms);
+        console.log("difference", difference);
+
+        difference.shift();
+        console.log("dif", difference);
+
+        highestOrder = difference[0];
+
+    };
+
+};
