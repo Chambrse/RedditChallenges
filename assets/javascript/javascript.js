@@ -156,4 +156,13 @@ function polydivide(poly1input, poly2input) {
     remainder = highestOrder[0];
     console.log(quotient);
     console.log(remainder);
+
+
+    /* beautify */
+    var polyAnswerString = "";
+    for (m = 0; m < quotient.length ; m++) {
+        polyAnswerString += quotient[m][0] + "x" + "<sup>" + quotient[m][1] + "</sup>" + " +";
+    }
+    polyAnswerString += remainder;
+    $("#polyAnswer").html(polyAnswerString);
 };
