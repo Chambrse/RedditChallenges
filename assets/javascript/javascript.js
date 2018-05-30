@@ -74,23 +74,28 @@ function polydivide(poly1input, poly2input) {
     var poly1 = [];
     var poly2 = [];
 
+    /* turn the inputs into nested arrays */
     for (var h = 0; h < poly1input.length; h += 2) {
-        console.log(h);
-        poly1.push([poly1input.charAt(h), poly1input.charAt(h+1)]);
-        console.log(poly1);
+        if (poly1input.charAt(h) == "-") {
+            poly1.push([parseInt(poly1input.charAt(h + 1)) * -1, poly1input.charAt(h + 2)]);
+            h++;
+        } else {
+            poly1.push([poly1input.charAt(h), poly1input.charAt(h + 1)]);
+        }
     }
+    console.log(poly1.join());
 
     for (var l = 0; l < poly2input.length; l += 2) {
-        console.log(l);
-        poly2.push([poly2input.charAt(l), poly2input.charAt(l+1)]);
-        console.log(poly2);
+        if (poly2input.charAt(l) == "-") {
+            poly2.push([parseInt(poly2input.charAt(l + 1)) * -1, poly2input.charAt(l + 2)]);
+            l++;
+        } else {
+            poly2.push([poly2input.charAt(l), poly2input.charAt(l + 1)]);
+        }
     }
+    console.log(poly2.join());
 
-/*     poly1 = [[2, 4], [-9, 3], [21, 2], [-26, 1], [12, 0]];
-    poly2 = [[2, 1], [-3, 0]];  */
-
-
-    /* Sort the input into descending order */
+    /* Sort the input into descending order by exponent */
     poly1.sort(function (b, a) {
         return a[1] - b[1];
     });
@@ -99,26 +104,39 @@ function polydivide(poly1input, poly2input) {
         return a[1] - b[1];
     });
 
+    /* at the end of the polynomial, add an [0,N] term for each N down to zero */
+    while (poly1[poly1.length - 1][1] != 0) {
+        if (poly1[poly1.length - 1][1] != 0) {
+            poly1.push([0, poly1[poly1.length - 1][1] - 1]);
+            console.log(poly1.join());
+        }
+    }
 
-/*     /* fill in empty terms 
-    var OGlength = poly1.length;
-    var OGlength2 = poly2.length;
+    while (poly2[poly2.length - 1][1] != 0) {
+        if (poly2[poly2.length - 1][1] != 0) {
+            poly2.push([0, poly2[poly2.length - 1][1] - 1]);
+            console.log(poly2.join());
+        }
+    }
 
-    for (var i = 0; i < OGlength; i++) {
+    /* add in missing terms */
+    for (var i = 0; i < poly1.length; i++) {
         if (poly1[i][1] != 0) {
-            if (poly1[i][1] != poly1[i + 1][1] + 1) {
+            if (poly1[i][1] != parseInt(poly1[i + 1][1]) + 1) {
                 poly1.splice(i + 1, 0, [0, poly1[i][1] - 1]);
+                console.log(poly1.join());
             }
         }
     }
 
-    for (var i = 0; i < OGlength2; i++) {
+    for (var i = 0; i < poly2.length; i++) {
         if (poly2[i][1] != 0) {
-            if (poly2[i][1] != poly2[i + 1][1] + 1) {
+            if (poly2[i][1] != parseInt(poly2[i + 1][1]) + 1) {
                 poly2.splice(i + 1, 0, [0, poly2[i][1] - 1]);
+                console.log(poly2.join());
             }
         }
-    } */
+    }
 
     var toSubtract = [];
     var quotient = [];
@@ -137,5 +155,5 @@ function polydivide(poly1input, poly2input) {
     }
     remainder = highestOrder[0];
     console.log(quotient);
-    console.log(remainder); 
+    console.log(remainder);
 };
