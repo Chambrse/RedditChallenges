@@ -169,15 +169,15 @@ $(document).ready(function () {
         $("#polyAnswer").html(polyAnswerString);
     };
 
-    $("#planeButton").on("click", function() {
+    $("#planeButton").on("click", function () {
         navigator.geolocation.getCurrentPosition(getAirplane);
     });
 
 
     /* https://opensky-network.org/api/states/all?lamin=45.8389&lomin=5.9962&lamax=47.8229&lomax=10.5226 */
 
-/*     states 5 = long
- */
+    /*     states 5 = long
+     */
     function getAirplane(position) {
 
         userLat = position.coords.latitude;
@@ -211,12 +211,12 @@ $(document).ready(function () {
                 console.log(distance);
             }
 
-            $("#airplaneAnswer").html("")
+            $("#airplaneAnswer").html("Flight: " + response.states[bestIndex][1] + "<br>" + "Distance (approx-degrees): " + currentBest + "<br>" + "Latitude:" + response.states[bestIndex][6] + "<br> Longitude: " + response.states[bestIndex][5] + "<br> Altitude: " + response.states[bestIndex][7] + "<br> Country of origin: " + response.states[bestIndex][2] + "<br> ID: " + response.states[bestIndex][0]);
 
-            console.log(currentBest);
+            console.log(response.states[bestIndex][1]);
 
         });
-        
+
     };
 
 });
