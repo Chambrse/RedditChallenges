@@ -36,3 +36,9 @@ p {
     border-radius: 5px;
 }
 
+.inputSection {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
